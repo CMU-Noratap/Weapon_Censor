@@ -1,0 +1,3 @@
+
+#Evaluate
+python detect.py --weights C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Yolo/yolov5/runs/train/exp3/weights/best.pt --img 300 --conf 0.7 --source C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Dataset/guns-knives-yolo/guns-knives-yolo/test/images --save-csv --save-txt
