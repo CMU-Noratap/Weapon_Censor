@@ -68,8 +68,8 @@ def blur_bbox(mask_image, image, window_size_blur=7, pixel_block=5):
     return blurred_img
 
 def censor(image_name,id):
-    path_original_image = f"{upload_path}{id}/{image_name}.jpg"
-    path_label_image = f"{detect_path}{id}/labels/{image_name}.txt"
+    path_original_image = f"{upload_path}{id}\\{image_name}.jpg"
+    path_label_image = f"{detect_path}{id}/labels\\{image_name}.txt"
 
     #Read Original Image
     ori_img = cv2.imread(path_original_image)
@@ -140,7 +140,7 @@ if image_file is not None:
 
         #create new folder
         os.makedirs(f"{upload_path}{id}")
-        _upload_path = f"{upload_path}{id}/{image_file.name}.jpg"
+        _upload_path = f"{upload_path}{id}\\{image_file.name}.jpg"
 
         #Save Image
         cv2.imwrite(_upload_path,img)
@@ -159,7 +159,7 @@ if image_file is not None:
 
         #Show Detech Image 
         st.title('Detect Image')
-        detect_img_path = f"{detect_path}{id}/{image_file.name}.jpg"
+        detect_img_path = f"{detect_path}{id}\\{image_file.name}.jpg"
         detect_img = cv2.imread(detect_img_path)
         st.image(cv2.cvtColor(detect_img, cv2.COLOR_BGR2RGB))
 
@@ -174,5 +174,5 @@ if image_file is not None:
         with st.spinner('Wait for LayerCAM'):
             gradcam(image_file.name,id)
 
-        gradcam_img = cv2.imread(f"{gradcam_path}{id}/gradcam.jpg")
+        gradcam_img = cv2.imread(f"{gradcam_path}{id}\\gradcam.jpg")
         st.image(cv2.cvtColor(gradcam_img, cv2.COLOR_BGR2RGB))
