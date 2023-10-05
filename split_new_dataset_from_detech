@@ -1,0 +1,26 @@
+import shutil
+import glob
+
+list_train = glob.glob("C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Yolo/yolov5/runs/detect/exp/val/*")
+
+datapath = "C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Dataset/add_without_weapon/resize/"
+
+output_path_image = "C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Dataset/add_without_weapon/val/images/"
+output_path_label = "C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Dataset/add_without_weapon/val/labels/"
+
+for img_file in list_train:
+    print(img_file)
+
+    file_name = img_file.split("\\")[1]
+
+    old_path = datapath+file_name
+    new_path_img = output_path_image+file_name
+
+    #Copy image
+    shutil.copy(old_path, new_path_img)
+
+    new_path_txt = output_path_label+file_name.replace(".jpg",".txt")
+    #Create Label
+    with open(new_path_txt, 'w') as fp:
+        pass
+    

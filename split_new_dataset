@@ -1,0 +1,40 @@
+import shutil
+import glob
+
+import random
+
+
+def copy_img_and_add_label(list_datapath,output_path):
+    for img_file in list_datapath:
+        print(img_file)
+
+        file_name = img_file.split("\\")[1]
+
+        old_path = img_file
+        new_path_img = output_path+"images/"+file_name
+
+        #Copy image
+        shutil.copy(old_path, new_path_img)
+
+        new_path_txt = output_path+"labels/"+file_name.replace(".jpg",".txt")
+        #Create Label
+        with open(new_path_txt, 'w') as fp:
+            pass
+
+#list_datapath = glob.glob("C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Dataset/add_without_weapon/internet/resize/*.jpg")
+list_datapath = glob.glob("C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Dataset/add_without_weapon/webcam/*.jpg")
+
+#Shuffle
+random.shuffle(list_datapath)
+
+output_path = "C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Dataset/add_without_weapon/"
+
+#Train Test Split
+n_data = len(list_datapath)
+list_train = list_datapath[0:int(n_data*0.9)]
+list_val = list_datapath[int(n_data*0.9):int(n_data*0.95)]
+list_test = list_datapath[int(n_data*0.95):]
+
+copy_img_and_add_label(list_train,output_path+"train/")
+copy_img_and_add_label(list_val,output_path+"val/")
+copy_img_and_add_label(list_test,output_path+"test/")

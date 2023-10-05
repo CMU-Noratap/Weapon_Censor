@@ -102,6 +102,9 @@ def run(
     stride, names, pt = model.stride, model.names, model.pt
     imgsz = check_img_size(imgsz, s=stride)  # check image size
 
+    print(model.state_dict().keys())
+    #torch.save( model.state_dict() , "C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Yolo/yolov5/runs/train/exp8/model.pt")
+
     # Dataloader
     bs = 1  # batch_size
     if webcam:

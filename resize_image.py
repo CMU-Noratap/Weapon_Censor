@@ -1,8 +1,8 @@
 import cv2
 import glob
 
-input_path = "C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Dataset/add_without_weapon/raw/*"
-output_path = "C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Dataset/add_without_weapon/resize/"
+input_path = "C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Dataset/add_without_weapon_internet/raw/*"
+output_path = "C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Dataset/add_without_weapon_internet/resize/"
 
 list_image_file = glob.glob(input_path)
 
@@ -31,13 +31,13 @@ for img_file in list_image_file:
     image = cv2.imread(img_file)
     
     # Display the image
-    cv2.imshow("Original", image)
+    #cv2.imshow("Original", image)
 
     #Crop & Resize
     new_img = crop_resize(image)
 
     # Display the image
-    cv2.imshow("New", new_img)
+    #cv2.imshow("New", new_img)
 
     #Save image
     file_target = f"{output_path}{file_name}.jpg"

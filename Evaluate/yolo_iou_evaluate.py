@@ -47,7 +47,8 @@ img_w = 300
 varborn = False # False = not display img , True = display img
 
 list_path_gt = glob.glob("C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Dataset/guns-knives-yolo/guns-knives-yolo/test/labels/*")
-path_predict_root = "C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Yolo/yolov5/runs/detect/exp4/labels/"
+#path_predict_root = "C:/Users/PC_ML/Desktop/Gun_Knife_Censor/Yolo/yolov5/runs/detect/exp8/labels/" # Yolov5
+path_predict_root = "C:/Users/PC_ML/Desktop/Gun_Knife_Censor/CNN/predict/labels/" # CNN
 
 print(f"num_tes:{len(list_path_gt)}")
 list_iou = []
