@@ -24,7 +24,7 @@ def load_image(image_file):
 
 def detection(_upload_path,id,th):
     #command = f"python yolov5/detect.py --weights yolov5/runs/train/exp8/weights/best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
-    command = f"yolov5\\detect.py --weights /mount/src/weapon_censor/yolov5/runs/train/exp8/weights\\best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
+    command = f"/mount/src/weapon_censor/yolov5/detect.py --weights /mount/src/weapon_censor/yolov5/runs/train/exp8/weights/best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
     os.system(f"ls /mount/src/weapon_censor/yolov5/")
     os.system(f"ls /mount/src/weapon_censor/yolov5/runs/train/")
     os.system(f"ls /mount/src/weapon_censor/upload_image/")
@@ -68,8 +68,8 @@ def blur_bbox(mask_image, image, window_size_blur=7, pixel_block=5):
     return blurred_img
 
 def censor(image_name,id):
-    path_original_image = f"{upload_path}{id}\\{image_name}.jpg"
-    path_label_image = f"{detect_path}{id}/labels\\{image_name}.txt"
+    path_original_image = f"{upload_path}{id}/{image_name}.jpg"
+    path_label_image = f"{detect_path}{id}/labels/{image_name}.txt"
 
     #Read Original Image
     ori_img = cv2.imread(path_original_image)
@@ -110,7 +110,7 @@ def censor(image_name,id):
 
 def gradcam(image_name,id):
     #command = f"python cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
-    command = f"cam.py --image-path {upload_path}/{id}\\{image_name}.jpg --name {id}  --method layercam"
+    command = f"cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
     #os.system(command)
     subprocess.run([f"{sys.executable}",command])
 
@@ -120,6 +120,8 @@ command = st.text_input('Bash Shell', 'pwd')
 #Predict
 if st.button('Execute'):
     os.system(command)
+
+
 
 th = st.slider("Select a threshold",max_value=1.0,min_value=0.0,value=0.7)
 st.write(th, "threshold is", th)
@@ -140,7 +142,7 @@ if image_file is not None:
 
         #create new folder
         os.makedirs(f"{upload_path}{id}")
-        _upload_path = f"{upload_path}{id}\\{image_file.name}.jpg"
+        _upload_path = f"{upload_path}{id}/{image_file.name}.jpg"
 
         #Save Image
         cv2.imwrite(_upload_path,img)
@@ -159,7 +161,7 @@ if image_file is not None:
 
         #Show Detech Image 
         st.title('Detect Image')
-        detect_img_path = f"{detect_path}{id}\\{image_file.name}.jpg"
+        detect_img_path = f"{detect_path}{id}/{image_file.name}.jpg"
         detect_img = cv2.imread(detect_img_path)
         st.image(cv2.cvtColor(detect_img, cv2.COLOR_BGR2RGB))
 
@@ -174,5 +176,5 @@ if image_file is not None:
         with st.spinner('Wait for LayerCAM'):
             gradcam(image_file.name,id)
 
-        gradcam_img = cv2.imread(f"{gradcam_path}{id}\\gradcam.jpg")
+        gradcam_img = cv2.imread(f"{gradcam_path}{id}/gradcam.jpg")
         st.image(cv2.cvtColor(gradcam_img, cv2.COLOR_BGR2RGB))
