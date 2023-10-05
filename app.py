@@ -24,7 +24,7 @@ def load_image(image_file):
 
 def detection(_upload_path,id,th):
     #command = f"python yolov5/detect.py --weights yolov5/runs/train/exp8/weights/best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
-    command = f"yolov5/detect.py --weights /mount/src/weapon_censor/yolov5/runs/train/exp8/weights/best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
+    command = f"yolov5/detect.py --weights /mount/src/weapon_censor/yolov5/runs/train/exp8/weights\\best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
     os.system(f"ls /mount/src/weapon_censor/yolov5/")
     os.system(f"ls /mount/src/weapon_censor/yolov5/runs/train/")
     os.system(f"ls /mount/src/weapon_censor/upload_image/")
@@ -110,7 +110,7 @@ def censor(image_name,id):
 
 def gradcam(image_name,id):
     #command = f"python cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
-    command = f"cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
+    command = f"cam.py --image-path {upload_path}/{id}\\{image_name}.jpg --name {id}  --method layercam"
     #os.system(command)
     subprocess.run([f"{sys.executable}",command])
 
