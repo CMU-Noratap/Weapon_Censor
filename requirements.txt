@@ -73,8 +73,8 @@ tensorboard-data-server==0.7.1
 thop==0.1.1.post2209072238
 toml==0.10.2
 toolz==0.12.0
-torch==2.1.0
-torchvision==0.16.0
+torch
+torchvision
 tornado==6.3.3
 tqdm==4.66.1
 ttach==0.0.3
