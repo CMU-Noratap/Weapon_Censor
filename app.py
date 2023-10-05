@@ -11,6 +11,8 @@ upload_path = "upload_image/"
 detect_path = "yolov5/runs/detect/"
 gradcam_path = "gradcam_image/"
 
+os.system("pip install -r /mount/src/weapon_censor/requirements.txt")
+
 def load_image(image_file):
     _image = Image.open(image_file).convert('RGB')
     _image = np.array(_image) 
