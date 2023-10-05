@@ -114,10 +114,9 @@ def gradcam(image_name,id):
 
 
 #Command
-command = st.text_input('Bash Shell', 'pwd')
-#Predict
-if st.button('Execute'):
-    os.system(command)
+# command = st.text_input('Bash Shell', 'pwd')
+# if st.button('Execute'):
+#     os.system(command)
 
 
 
