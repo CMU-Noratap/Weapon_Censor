@@ -36,6 +36,8 @@ networkx==3.1
 numpy==1.24.4
 oauthlib==3.2.2
 opencv-python==4.8.1.78
+opencv-python-headless
+opencv_contrib_python
 packaging==23.2
 pandas==2.0.3
 Pillow==10.0.1
