@@ -9,9 +9,9 @@ import uuid
 import subprocess
 import sys
 
-upload_path = "upload_image/"
-detect_path = "yolov5/runs/detect/"
-gradcam_path = "gradcam_image/"
+upload_path = "/mount/src/weapon_censor/upload_image/"
+detect_path = "/mount/src/weapon_censor/yolov5/runs/detect/"
+gradcam_path = "/mount/src/weapon_censor/gradcam_image/"
 
 def load_image(image_file):
     _image = Image.open(image_file).convert('RGB')
