@@ -108,7 +108,7 @@ def censor(image_name,id):
 
 def gradcam(image_name,id):
     #command = f"python cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
-    command = f"/home/adminuser/venv/bin/python /mount/src/weapon_censor/yolov5/cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
+    command = f"/home/adminuser/venv/bin/python /mount/src/weapon_censor/cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
     os.system(command)
     #subprocess.run([f"{sys.executable}",command])
 
