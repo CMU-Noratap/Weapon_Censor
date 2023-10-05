@@ -24,11 +24,9 @@ def load_image(image_file):
 
 def detection(_upload_path,id,th):
     #command = f"python yolov5/detect.py --weights yolov5/runs/train/exp8/weights/best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
-    command = f"/mount/src/weapon_censor/yolov5/detect.py --weights /mount/src/weapon_censor/yolov5/runs/train/exp8/weights/best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
-    os.system(f"ls /mount/src/weapon_censor/yolov5/")
-    os.system(f"ls /mount/src/weapon_censor/yolov5/runs/train/")
-    os.system(f"ls /mount/src/weapon_censor/upload_image/")
-    subprocess.run([f"{sys.executable}",command])
+    command = f"/home/adminuser/venv/bin/python /mount/src/weapon_censor/yolov5/detect.py --weights /mount/src/weapon_censor/yolov5/runs/train/exp8/weights/best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
+    #subprocess.run([f"{sys.executable}",command])
+    os.system(command)
 
 #Censor
 def anonymize_face_pixelate(image, blocks=3):
@@ -110,9 +108,9 @@ def censor(image_name,id):
 
 def gradcam(image_name,id):
     #command = f"python cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
-    command = f"cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
-    #os.system(command)
-    subprocess.run([f"{sys.executable}",command])
+    command = f"/home/adminuser/venv/bin/python /mount/src/weapon_censor/yolov5/cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
+    os.system(command)
+    #subprocess.run([f"{sys.executable}",command])
 
 
 #Command
