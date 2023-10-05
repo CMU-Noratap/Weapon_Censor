@@ -25,7 +25,7 @@ def load_image(image_file):
 def detection(_upload_path,id,th):
     #command = f"python yolov5/detect.py --weights yolov5/runs/train/exp8/weights/best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
     command = f"yolov5/detect.py --weights /mount/src/weapon_censor/yolov5/runs/train/exp8/weights/best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
-    #os.system(command)
+    os.system(f"ls /mount/src/weapon_censor/")
     subprocess.run([f"{sys.executable}",command])
 
 #Censor
