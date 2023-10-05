@@ -6,10 +6,12 @@ import numpy as np
 import os
 import uuid
 
+import subprocess
+import sys
+
 upload_path = "upload_image/"
 detect_path = "yolov5/runs/detect/"
 gradcam_path = "gradcam_image/"
-
 
 def load_image(image_file):
     _image = Image.open(image_file).convert('RGB')
@@ -21,8 +23,10 @@ def load_image(image_file):
     return img
 
 def detection(_upload_path,id,th):
-    command = f"python yolov5/detect.py --weights yolov5/runs/train/exp8/weights/best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
-    os.system(command)
+    #command = f"python yolov5/detect.py --weights yolov5/runs/train/exp8/weights/best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
+    command = f"yolov5/detect.py --weights yolov5/runs/train/exp8/weights/best.pt --imgsz 300 --conf-thres {th} --source {_upload_path} --name {id} --save-txt"
+    #os.system(command)
+    subprocess.run(f"{sys.executable}",command)
 
 #Censor
 def anonymize_face_pixelate(image, blocks=3):
@@ -103,8 +107,10 @@ def censor(image_name,id):
     return censor_img
 
 def gradcam(image_name,id):
-    command = f"python cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
-    os.system(command)
+    #command = f"python cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
+    command = f"cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
+    #os.system(command)
+    subprocess.run(f"{sys.executable}",command)
 
 
 th = st.slider("Select a threshold",max_value=1.0,min_value=0.0,value=0.7)
