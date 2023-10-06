@@ -108,7 +108,7 @@ def censor(image_name,id):
 
 def gradcam(image_name,id):
     #command = f"python cam.py --image-path {upload_path}\{id}\{image_name}.jpg --name {id}  --method layercam"
-    command = f"/home/adminuser/venv/bin/python /mount/src/weapon_censor/cam.py --image-path {upload_path}/{id}/{image_name}.jpg --name {id}  --method layercam"
+    command = f"/home/adminuser/venv/bin/python /mount/src/weapon_censor/cam.py --image-path {upload_path}/{id}/{image_name}.jpg --name {id}  --method scorecam"
     os.system(command)
     #subprocess.run([f"{sys.executable}",command])
 
@@ -117,8 +117,6 @@ def gradcam(image_name,id):
 # command = st.text_input('Bash Shell', 'pwd')
 # if st.button('Execute'):
 #     os.system(command)
-
-
 
 th = st.slider("Select a threshold",max_value=1.0,min_value=0.0,value=0.7)
 st.write(th, "threshold is", th)
