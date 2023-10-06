@@ -24,7 +24,7 @@
 ## Installing
 
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Run program with web interface
