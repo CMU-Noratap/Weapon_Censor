@@ -1,6 +1,6 @@
 # Weapon Detect And Censor
 
-  This project will detect weapon include gun and knife from image base on yolov5 image detection then blur and anonymize the area in bounding box
+  This project will detect weapon include gun and knife in image base on yolov5 image detection then blur and anonymize the area in bounding box
 
 # Demo
 :earth_asia: https://weaponcensor-9pc3aoetmkwwamk98mq3jw.streamlit.app/
