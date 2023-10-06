@@ -2,20 +2,35 @@
 
   This project will detect weapon include gun and knife from image base on yolov5 image detection then blur and anonymize the area in bounding box
 
+# Demo
+:earth_asia: https://weaponcensor-9pc3aoetmkwwamk98mq3jw.streamlit.app/
+
 # Example
 
+## Original Image
+![Screenshot](example_image/original_image.jpg)
 
-## Getting Started
+## Detect Image
+![Screenshot](example_image/detect_image.jpg)
 
-### Installing
+## Censor Image
+![Screenshot](example_image/censor_image.jpg)
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+## LayerCAM
+![Screenshot](example_image/layercam_image.jpg)
 
-### Executing program
+# Getting Started
 
-* How to run the program
-* Step-by-step bullets
+## Installing
+
 ```
-code blocks for commands
+pip install requirements.txt
 ```
+
+## Run program with web interface
+
+```
+cd Deploy
+streamlit run app.py
+```
+
