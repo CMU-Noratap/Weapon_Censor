@@ -165,10 +165,10 @@ if image_file is not None:
         censor_img = censor(image_file.name,id)
         st.image(cv2.cvtColor(censor_img, cv2.COLOR_BGR2RGB))
 
-        #GradCam LayerCAM
-        st.title('LayerCAM')
+        #GradCam 
+        st.title('ScoreCAM')
         #Detect Image
-        with st.spinner('Wait for LayerCAM'):
+        with st.spinner('Wait for GradCAM'):
             gradcam(image_file.name,id)
 
         gradcam_img = cv2.imread(f"{gradcam_path}{id}/gradcam.jpg")
