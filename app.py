@@ -166,7 +166,7 @@ if image_file is not None:
         st.image(cv2.cvtColor(censor_img, cv2.COLOR_BGR2RGB))
 
         #GradCam 
-        st.title('ScoreCAM')
+        st.title('GradCAM')
         #Detect Image
         with st.spinner('Wait for GradCAM'):
             gradcam(image_file.name,id)
